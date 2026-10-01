@@ -1,4 +1,4 @@
-# Projeto - Cidades ESGInteligentes
+# Projeto - ReRoute
 
 Projeto **ReRoute**: API REST em ASP.NET Core 8 para uma plataforma de economia circular. A ideia é conectar doadores, receptores e transportadores em um fluxo de doação e registrar o impacto ambiental (ESG) de cada doação.
 

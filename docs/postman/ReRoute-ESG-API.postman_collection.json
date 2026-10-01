@@ -1,0 +1,441 @@
+{
+  "info": {
+    "_postman_id": "c3df6ec3-37a6-4b2f-9a6e-9e39203631ff",
+    "name": "ReRoute ESG API - FIAP",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "49727521",
+    "_collection_link": "https://go.postman.co/collection/49727521-c3df6ec3-37a6-4b2f-9a6e-9e39203631ff?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Login - Doador",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var jsonData = pm.response.json();",
+              "",
+              "pm.collectionVariables.set(\"token\", jsonData.token);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"email\": \"joao@email.com\",\n    \"senha\": \"senha1\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7131/api/auth/login",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7131",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        },
+        "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+      },
+      "response": []
+    },
+    {
+      "name": "Login - Receptor",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var jsonData = pm.response.json();\r",
+              "\r",
+              "pm.collectionVariables.set(\"token\", jsonData.token);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"maria@email.com\",\r\n  \"senha\": \"senha2\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7131/api/auth/login",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7131",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login - Transportador",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var jsonData = pm.response.json();\r",
+              "\r",
+              "pm.collectionVariables.set(\"token\", jsonData.token);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"carlos@email.com\",\r\n  \"senha\": \"senha3\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7131/api/auth/login",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7131",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Participantes - Listar (JWT)",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:7131/api/participantes?page=1&pageSize=10",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7131",
+          "path": [
+            "api",
+            "participantes"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "pageSize",
+              "value": "10"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Doações - Listar",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:7131/api/doacoes?page=1&pageSize=10",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7131",
+          "path": [
+            "api",
+            "doacoes"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "pageSize",
+              "value": "10"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Registros ESG - Listar (JWT)",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:7131/api/registros?page=1&pageSize=10",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7131",
+          "path": [
+            "api",
+            "registros"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "pageSize",
+              "value": "10"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Solicitações - Listar",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:7131/api/solicitacoes?page=1&pageSize=10",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7131",
+          "path": [
+            "api",
+            "solicitacoes"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "pageSize",
+              "value": "10"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Entregas - Listar",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:7131/api/entregas?page=1&pageSize=10",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7131",
+          "path": [
+            "api",
+            "entregas"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "pageSize",
+              "value": "10"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Doações - Criar [DOADOR]",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"participantId\": 1,\r\n    \"nomeItem\": \"Cesta Básica\",\r\n    \"descricao\": \"Cesta básica para doação\",\r\n    \"tamanho\": \"MEDIO\",\r\n    \"localRetirada\": \"Rua Central 100\",\r\n    \"status\": \"DISPONIVEL\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7131/api/doacoes",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7131",
+          "path": [
+            "api",
+            "doacoes"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Solicitações - Criar (RECEPTOR)",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"donationId\": 1,\r\n  \"participantId\": 2,\r\n  \"status\": \"PENDENTE\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7131/api/solicitacoes",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7131",
+          "path": [
+            "api",
+            "solicitacoes"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Entregas - Criar (TRANSPORTADOR)",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"solicitacaoId\": 1,\r\n  \"participantId\": 3,\r\n  \"dataAceite\": \"2026-06-16T19:00:00\",\r\n  \"dataEntrega\": \"2026-06-17T19:00:00\",\r\n  \"status\": \"PENDENTE\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7131/api/entregas",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7131",
+          "path": [
+            "api",
+            "entregas"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "token",
+      "value": ""
+    }
+  ]
+}
